@@ -1,15 +1,7 @@
-sut:
-        build: .
-        dockerfile: Dockerfile.test
-        links:
-                - web
-
-web:
-        build: .
-        dockerfile: Dockerfile
-        links:
-                - redis
-
-redis:
-        image: redis
-
+version: '2'
+services:
+  sut:
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    command: npm run test
